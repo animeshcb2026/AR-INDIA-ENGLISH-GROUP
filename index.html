@@ -105,6 +105,12 @@
             margin-top: 40px;
         }
 
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .login-card {
             border: 1px solid var(--border);
             padding: 30px;
@@ -208,7 +214,6 @@
         }
 
         .badge-success { background: #dcfce7; color: #15803d; }
-        .badge-pending { background: #fef9c3; color: #a16207; }
     </style>
 </head>
 <body>
@@ -228,7 +233,7 @@
                 <h2>Student Panel</h2>
                 <p style="margin-bottom: 20px; color: #64748b;">Take assigned exams and view your historical progress reports.</p>
                 <div class="form-group">
-                    <label for="student-name-input">Enter Your Name:</label>
+                    <label for="student-name-input">Enter Your Full Name:</label>
                     <input type="text" id="student-name-input" placeholder="e.g., Rohan Sharma">
                 </div>
                 <button class="btn" onclick="loginAsStudent()">Login as Student</button>
@@ -248,12 +253,12 @@
             <button class="btn btn-secondary" onclick="logout()">Logout</button>
         </div>
         
-        <h3>Available Exams</h3>
+        <h3>Available Exams For You</h3>
         <div id="available-exams-container" style="margin-top: 15px; margin-bottom: 30px;">
             <!-- Dynamic Exam options injected here -->
         </div>
 
-        <h3>Your Progress & Exam History</h3>
+        <h3>Your Personal Progress History</h3>
         <div class="table-container">
             <table>
                 <thead>
@@ -313,17 +318,13 @@
             </div>
             <div class="form-group">
                 <label for="target-student">Assign to Student Name:</label>
-                <input type="text" id="target-student" placeholder="e.g., Rohan Sharma (Matches exact login name)">
+                <input type="text" id="target-student" placeholder="e.g., Rohan Sharma (Must match student's login name)">
             </div>
             
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border);">
-            <h4>Add Question</h4>
+            <h4>Add Questions to this Exam</h4>
             
             <div class="form-group" style="margin-top: 10px;">
                 <label for="question-type">Question Type:</label>
                 <select id="question-type" onchange="toggleQuestionFields()">
                     <option value="mcq">Multiple Choice (MCQ)</option>
-                    <option value="text">Short Answer / Text</option>
-                </select>
-            </div>
-
